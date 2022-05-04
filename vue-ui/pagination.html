@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue的UI框架 - 分页</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/view-design/dist/styles/iview.css">
+    <script type="text/javascript" src="https://unpkg.com/view-design/dist/iview.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css"/>
+	<script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/ant-design-vue@1.7.4/dist/antd.css"/>
+	<script src="https://unpkg.com/ant-design-vue@1.7.4/dist/antd.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./yxl.css"/>	
+    <style type="text/css">
+        #nav a[title="分页"]{
+            background-color: white;
+            width: 90px;
+        }
+    </style>
+</head>
+<body>
+<header>
+
+</header>
+<main>
+<div id="nav">
+    <ul>
+        <li v-for="item in items" :key="item.label">
+            <a :href="item.href" :title="item.label">{{item.label}}</a>
+        </li>
+    </ul>	
+</div>
+<div id="app">
+<table>
+    <tr>
+        <th></th>
+        <th><img src="img/ivu.svg">View UI</th>
+        <th><img src="img/van.png">Vant</th>
+        <th><img src="img/el.svg">Element</th>
+        <th><img src="img/ant.svg">Ant Design</th>
+    </tr>
+    <tr>
+        <td>组件名</td>
+        <td>Page</td>
+        <td>van-pagination</td>
+        <td>el-pagination</td>
+        <td>a-pagination</td>
+    </tr>
+    <tr>
+        <td>UI</td>
+        <td>
+            <page :current="i.current" :total="i.total" :page-size="i['page-size']" :simple="i.simple"
+                :prev-text="i['prev-text']" :next-text="i['next-text']">
+            </page>
+        </td>
+        <td>
+            <van-pagination v-model="v.value" :total-items="v['total-items']" :items-per-page="v['items-per-page']" :mode="v.mode"
+                :prev-text="v['prev-text']" :next-text="v['next-text']">
+            </van-pagination>
+        </td>
+        <td>
+            <el-pagination layout="prev,pager,next" :current-page="e['current-page']" :total="e.total" page-size="e['page-size']"
+                :prev-text="e['prev-text']" :next-text="e['next-text']">
+            </el-pagination>
+        </td>
+        <td>
+            <a-pagination v-model="a.value" :total="a.total" :page-size="a['page-size']" :simple="a.simple">
+            </a-pagination>
+        </td>
+    </tr>
+    <tr>
+        <td>代码</td>
+        <td>
+            <div v-html="i_code"></div><i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+            <div v-html="v_code"></div><i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+            <div v-html="e_code"></div><i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+            <div v-html="a_code"></div><i class="el-icon-document-copy" title="复制"></i>
+        </td>
+    </tr>
+   <tr>
+        <td>当前页码</td>
+        <td>current:<el-input-number v-model="i.current"></el-input-number></td>
+        <td>v-model:<el-input-number v-model="v.value"></el-input-number></td>
+        <td>current-page:<el-input-number v-model="e['current-page']"></el-input-number></td>
+        <td>v-model:<el-input-number v-model="a.value"></el-input-number></td>
+    </tr>
+    <tr>
+        <td>数据总数</td>
+        <td>total:<el-input-number v-model="i.total"></el-input-number></td>
+        <td>total-items:<el-input-number v-model="v['total-items']"></el-input-number></td>
+        <td>total:<el-input-number v-model="e.total"></el-input-number></td>
+        <td>total:<el-input-number v-model="a.total"></el-input-number></td>
+    </tr>
+    <tr>
+        <td>每页行数</td>
+        <td>page-size:<el-input-number v-model="i['page-size']"></el-input-number></td>
+        <td>items-per-page:<el-input-number v-model="v['items-per-page']"></el-input-number></td>
+        <td>page-size:<el-input-number v-model="e['page-size']"></el-input-number></td>
+        <td>page-size:<el-input-number v-model="a['page-size']"></el-input-number></td>
+    </tr>
+    <tr>
+        <td>简洁</td>
+        <td><el-checkbox v-model="i.simple">简洁(simple)</el-checkbox></td>
+        <td>
+            模式 
+            <el-radio-group v-model="v.mode">
+                <el-radio label="simple">简单(simple)</el-radio><br/>
+                <el-radio label="multi">较多(multi)</el-radio>
+            </el-radio-group>
+        </td>
+        <td>
+        </td>
+        <td><el-checkbox v-model="a.simple">简洁(simple)</el-checkbox></td>
+    </tr>
+    <tr>
+        <td>上页文本</td>
+        <td>prev-text:<el-input v-model="i['prev-text']"></el-input></td>
+        <td>prev-text:<el-input v-model="v['prev-text']"></el-input></td>
+        <td>prev-text:<el-input v-model="e['prev-text']"></el-input></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>下页文本</td>
+        <td>next-text:<el-input v-model="i['next-text']"></el-input></td>
+        <td>next-text:<el-input v-model="v['next-text']"></el-input></td>
+        <td>next-text:<el-input v-model="e['next-text']"></el-input></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>禁用</td>
+        <td>
+            <el-checkbox v-model="i.disabled">禁用(disabled)</el-checkbox>
+        </td>
+        <td>
+        </td>
+        <td>
+            <el-checkbox v-model="e.disabled">禁用(disabled)</el-checkbox>
+        </td>
+        <td>
+            <el-checkbox v-model="a.disabled">禁用(disabled)</el-checkbox>
+        </td>
+    </tr>
+</table>
+</div>
+</main>
+<script src="./yxl.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: { 
+            i:{//View UI
+                current:1,//当前页码
+                total:20,//数据总数
+                'page-size':10,//每页行数
+                'prev-text':'',//上页行数
+                'next-text':'',//下页行数
+                simple:false,//简洁
+            },
+            v:{//Vant
+                value:1,//当前页码
+                'total-items':20,//数据总数
+                'items-per-page':10,//每页行数
+                'prev-text':'上一页',//上页行数
+                'next-text':'下一页',//下页行数
+                mode:'multi',//模式 不简单
+            },
+            e:{//Element
+                'current-page':1,//当前页码
+                total:20,//数据总数
+                'page-size':10,//每页行数
+                'prev-text':'',//上页行数
+                'next-text':'',//下页行数
+            },
+            a:{//Ant Design
+                value:1,//当前页码
+                total:20,//数据总数
+                'page-size':10,//每页行数
+                simple:false,//简洁
+            },
+        },
+        computed: {
+            i_code(){
+                return code('Page',this.i);
+            },
+            v_code(){
+                return code('van-pagination',this.v);
+            },
+            e_code(){
+                return code('el-pagination',this.e);
+            },
+            a_code(){
+                return code('a-pagination',this.a);
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue的UI框架 - 样式</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/view-design/dist/styles/iview.css">
+    <script type="text/javascript" src="https://unpkg.com/view-design/dist/iview.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css"/>
+	<script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/ant-design-vue@1.7.4/dist/antd.css"/>
+	<script src="https://unpkg.com/ant-design-vue@1.7.4/dist/antd.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./yxl.css"/>	
+    <style type="text/css">
+        #nav a[title="样式"]{
+            background-color: white;
+            width: 90px;
+        }
+        #app td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<header>
+
+</header>
+<main>
+<div id="nav">
+    <ul>
+        <li v-for="item in items" :key="item.label">
+            <a :href="item.href" :title="item.label">{{item.label}}</a>
+        </li>
+    </ul>	
+</div>
+<div id="app">
+<table>
+    <tr>
+        <th></th>
+        <th><img src="img/ivu.svg">View UI</th>
+        <th><img src="img/van.png">Vant</th>
+        <th><img src="img/el.svg">Element</th>
+        <th><img src="img/ant.svg">Ant Design</th>
+    </tr>
+    <tr>
+        <td>主色</td>
+        <td style="color:white;background-color:#2d8cf0;">color:#2d8cf0;<i class="el-icon-document-copy" title="复制"></i></td>
+        <td style="color:white;background-color:#1989fa;">color:#1989fa;<i class="el-icon-document-copy" title="复制"></i></td>
+        <td style="color:white;background-color:#409EFF;">color:#409EFF;<i class="el-icon-document-copy" title="复制"></i></td>
+        <td style="color:white;background-color:#1890ff;">color:#1890ff;<i class="el-icon-document-copy" title="复制"></i></td>
+    </tr>
+    <tr>
+        <td>成功色</td>
+        <td style="color:white;background-color:#19be6b;">color:#19be6b;<i class="el-icon-document-copy" title="复制"></i></td>
+        <td style="color:white;background-color:#07c160;">color:#07c160;<i class="el-icon-document-copy" title="复制"></i></td>
+        <td style="color:white;background-color:#67C23A;">color:#67C23A;<i class="el-icon-document-copy" title="复制"></i></td>
+        <td style="color:white;background-color:#52c41a;">color:#52c41a;<i class="el-icon-document-copy" title="复制"></i></td>
+    </tr>
+    <tr>
+        <td>信息色</td>
+        <td style="color:white;background-color:#2db7f5;">color:#2db7f5;<i class="el-icon-document-copy" title="复制"></i></td>
+        <td></td><i class="el-icon-document-copy" title="复制"></i></td>
+        <td style="color:white;background-color:#909399;">color:#909399;<i class="el-icon-document-copy" title="复制"></i></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>警告色</td>
+        <td style="color:white;background-color:#ff9900;">color:#ff9900;<i class="el-icon-document-copy" title="复制"></i></td>
+        <td style="color:white;background-color:#ff976a;">color:#ff976a;<i class="el-icon-document-copy" title="复制"></i></td>
+        <td style="color:white;background-color:#E6A23C;">color:#E6A23C;<i class="el-icon-document-copy" title="复制"></i></td>
+        <td style="color:white;background-color:#faad14;">color:#faad14;<i class="el-icon-document-copy" title="复制"></i></td>
+    </tr>
+    <tr>
+        <td>危险色</td>
+        <td style="color:white;background-color:#ed4014;">color:#ed4014;<i class="el-icon-document-copy" title="复制"></i></td>
+        <td style="color:white;background-color:#ee0a24;">color:#ee0a24;<i class="el-icon-document-copy" title="复制"></i></td>
+        <td style="color:white;background-color:#F56C6C;">color:#F56C6C;<i class="el-icon-document-copy" title="复制"></i></td>
+        <td style="color:white;background-color:#f5222d;">color:#f5222d;<i class="el-icon-document-copy" title="复制"></i></td>
+    </tr>
+    <tr>
+        <td>主标题</td>
+        <td style="font-size:16px;font-weight:bold;color:#464c5b;">
+            font-size:16px;<br/>
+            font-weight:bold;<br/>
+            color:#464c5b;<i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+        </td>
+        <td style="font-size:20px;color:#606266">
+            font-size:20px;<br/>
+            color:#606266;<br/><i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>标题</td>
+        <td style="font-size:14px;font-weight:bold;color:#464c5b;">
+            font-size:14px;<br/>
+            font-weight:bold;<br/>
+            color:#464c5b;<i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+        </td>
+        <td style="font-size:18px;color:#606266">
+            font-size:18px;<br/>
+            color:#606266;<br/><i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>小标题</td>
+        <td style="font-size:12px;font-weight:bold;color:#657180;">
+            font-size:12px;<br/>
+            font-weight:bold;<br/>
+            color:#657180;<i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+        </td>
+        <td style="font-size:16px;color:#606266">
+            font-size:16px;<br/>
+            color:#606266;<br/><i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>正文</td>
+        <td style="font-size:12px;color:#464c5b;">
+            font-size:12px;<br/>
+            color:#464c5b;<i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+        </td>
+        <td style="font-size:14px;color:#606266">
+            font-size:14px;<br/>
+            color:#606266;<i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>小正文</td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td style="font-size:13px;color:#606266">
+            font-size:13px;<br/>
+            color:#606266;<i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>辅助文</td>
+        <td style="font-size:12px;color:#9ea7b4;">
+            font-size:13px;<br/>
+            color:#9ea7b4;<i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+        </td>
+        <td style="font-size:12px;color:#606266">
+            font-size:12px;<br/>
+            color:#606266;<i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>失效文</td>
+        <td style="font-size:12px;color:#c3cbd6;">
+            font-size:16px;<br/>
+            color:#c3cbd6;<i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>链接文</td>
+        <td style="font-size:12px;color:#3399ff;">
+            font-size:16px;<br/>
+            color:#3399ff;<i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+</table>
+</div>
+</div>
+<script src="./yxl.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+        },
+        methods:{
+        }
+    })
+</script>
+</body>
+</html>

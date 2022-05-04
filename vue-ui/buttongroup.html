@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue的UI框架 - 按钮组</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/view-design/dist/styles/iview.css">
+    <script type="text/javascript" src="https://unpkg.com/view-design/dist/iview.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css"/>
+	<script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/ant-design-vue@1.7.4/dist/antd.css"/>
+	<script src="https://unpkg.com/ant-design-vue@1.7.4/dist/antd.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./yxl.css"/>	
+    <style type="text/css">
+        #nav a[title="按钮组"]{
+            background-color: white;
+            width: 90px;
+        }
+    </style>
+</head>
+<body>
+<header>
+
+</header>
+<main>
+<div id="nav">
+    <ul>
+        <li v-for="item in items" :key="item.label">
+            <a :href="item.href" :title="item.label">{{item.label}}</a>
+        </li>
+    </ul>	
+</div>
+<div id="app">
+<table>
+    <tr>
+        <th></th>
+        <th><img src="img/ivu.svg">View UI</th>
+        <th><img src="img/van.png">Vant</th>
+        <th><img src="img/el.svg">Element</th>
+        <th><img src="img/ant.svg">Ant Design</th>
+    </tr>
+    <tr>
+        <td>组件名</td>
+        <td>ButtonGroup</td>
+        <td></td>
+        <td>el-button-group</td>
+        <td>a-button-group</td>
+    </tr>
+    <tr>
+        <td>UI</td>
+        <td>
+            <button-group :size="i.size" :shape="i.shape" :vertical="i.vertical">
+                <i-button type="primary">左</i-button>
+                <i-button type="primary">右</i-button>
+            </button-group>
+        </td>
+        <td>
+        </td>
+        <td>
+            <el-button-group :size="e.size">
+                <el-button type="primary">左</el-button>
+                <el-button type="primary">右</el-button>
+            </el-button-group>
+        </td>
+        <td>
+            <a-button-group :size="a.size">
+                <a-button type="primary">左</a-button>
+                <a-button type="primary">右</a-button>
+            </a-button-group>
+        </td>
+    </tr>
+    <tr>
+        <td>代码</td>
+        <td>
+            <div v-html="i_code"></div><i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+            <div v-html="v_code"></div><i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+            <div v-html="e_code"></div><i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+            <div v-html="a_code"></div><i class="el-icon-document-copy" title="复制"></i>
+        </td>
+    </tr>
+    <tr>
+        <td>尺寸</td>
+        <td>
+            <el-radio-group v-model="i.size">
+                <el-radio label="default">默认(default)</el-radio><br/>
+                <el-radio label="large">大(large)</el-radio><br/>
+                <el-radio label="small">小(small)</el-radio><br/>
+                <br/>
+            </el-radio-group>
+        </td>
+        <td>
+            <el-radio-group v-model="v.size">
+                <el-radio label="default">默认(normal)</el-radio><br/>
+                <el-radio label="large">大(large)</el-radio><br/>
+                <el-radio label="small">小(small)</el-radio><br/>
+                <el-radio label="mini">迷你(mini)</el-radio>
+            </el-radio-group>
+        </td>
+        <td>
+           <!--<el-radio-group v-model="e.size">
+                <el-radio label="default">默认(default)</el-radio><br/>
+                <el-radio label="medium">中(medium)</el-radio><br/>
+                <el-radio label="small">小(small)</el-radio><br/>
+                <el-radio label="mini">迷你(mini)</el-radio>
+            </el-radio-group>-->
+        </td>
+        <td>
+            <el-radio-group v-model="a.size">
+                <el-radio label="default">默认(default)</el-radio><br/>
+                <el-radio label="large">大(large)</el-radio><br/>
+                <el-radio label="small">小(small)</el-radio><br/>
+                <br/>
+            </el-radio-group>
+        </td>
+    </tr>
+    <tr>
+        <td>形状</td>
+        <td>            
+            <el-radio-group v-model="i.shape">
+                <el-radio label="">方角()</el-radio><br/>
+                <el-radio label="circle">圆角(circle)</el-radio>
+            </el-radio-group>
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+    </tr>
+    <tr>
+        <td>垂直</td>
+        <td>
+            <el-checkbox v-model="i.vertical">vertical</el-checkbox>
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+    </tr>
+</table>
+</div>
+</div>
+<script src="./yxl.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: { 
+            i:{//View UI
+                size:"default",//尺寸
+                shape:"circle",//形状
+                vertical:false,//垂直
+            },
+            v:{//Vant
+                size:"default",//尺寸
+            },
+            e:{//Element
+                //size:"default",//尺寸
+            },
+            a:{//Ant Design
+                size:"default",//尺寸
+            },
+        },
+        computed: {
+            i_code(){
+                return code('Button',this.i);
+            },
+            v_code(){
+                return "";
+            },
+            e_code(){
+                return code('el-button',this.e);
+            },
+            a_code(){
+                return code('a-button',this.a);
+            }
+        }
+    })
+</script>
+</body>
+</html>

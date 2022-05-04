@@ -1,1 +1,256 @@
-﻿<!DOCTYPE html><html><head><meta charset="utf-8"><title>Vue的UI框架 - 标签</title><script type="text/javascript" src="https://vuejs.org/js/vue.min.js"></script><link rel="stylesheet" type="text/css" href="https://unpkg.com/view-design/dist/styles/iview.css"><script type="text/javascript" src="https://unpkg.com/view-design/dist/iview.min.js"></script><link rel="stylesheet" type="text/css" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"><script src="https://unpkg.com/element-ui/lib/index.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css"/><script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script><link rel="stylesheet" type="text/css" href="https://unpkg.com/ant-design-vue@1.7.4/dist/antd.css"/><script src="https://unpkg.com/ant-design-vue@1.7.4/dist/antd.min.js"></script><link rel="stylesheet" type="text/css" href="./yxl.css"/><style type="text/css">#nav a[title="标签"]{background-color: white;width: 90px;}</style></head><body><header></header><main><div id="nav"><ul><li v-for="item in items" :key="item.label"><a :href="item.href" :title="item.label">{{item.label}}</a></li></ul></div><div id="app"><table><tr><th></th><th><img src="img/ivu.svg">View UI</th><th><img src="img/van.png">Vant</th><th><img src="img/el.svg">Element</th><th><img src="img/ant.svg">Ant Design</th></tr><tr><td>组件名</td><td>Tag</td><td>van-tag</td><td>el-tag</td><td>a-tag</td></tr><tr><td>UI</td><td><tag :color="i.color" :size="i.size" :closable="i.closable" :checkable="i.checkable" :checked="i.checked">{{i.text}}</tag></td><td><van-tag :type="v.type" :size="v.size" :closable="v.closable" :plain="v.plain" :round="v.round" :mark="v.mark">{{i.text}}</van-tag></td><td><el-tag :type="e.type" :size="e.size" :closable="e.closable" :hit="e.hit">{{i.text}}</el-tag></td><td><a-button :type="a.type" :size="a.size" :closable="a.closable">{{i.text}}</a-button></td></tr><tr><td>代码</td><td><div v-html="i_code"></div><i class="el-icon-document-copy"></i></td><td><div v-html="v_code"></div><i class="el-icon-document-copy"></i></td><td><div v-html="e_code"></div><i class="el-icon-document-copy"></i></td><td><div v-html="a_code"></div><i class="el-icon-document-copy"></i></td></tr><tr><td>文本</td><td><el-input v-model="i.text"></el-input></td><td><el-input v-model="v.text"></el-input></td><td><el-input v-model="e.text"></el-input></td><td><el-input v-model="a.text"></el-input></td></tr><tr><td>类型</td><td><el-radio-group v-model="i.color"><el-radio label="default">默认(default)</el-radio><br/><el-radio label="primary">主要(primary)</el-radio><br/><el-radio label="success">成功(success)</el-radio><br/><br/><el-radio label="warning">警告(warning)</el-radio><br/><el-radio label="error">错误(error)</el-radio><br/></el-radio-group></td><td><el-radio-group v-model="v.type"><el-radio label="default">默认(default)</el-radio><br/><el-radio label="primary">主要(primary)</el-radio><br/><br/><el-radio label="info">信息(info)</el-radio><br/><el-radio label="warning">警告(warning)</el-radio><br/><el-radio label="danger">错误(danger)</el-radio><br/></el-radio-group></td><td><el-radio-group v-model="e.type"><el-radio label="default">默认(default)</el-radio><br/><br/><el-radio label="success">成功(success)</el-radio><br/><el-radio label="info">信息(info)</el-radio><br/><el-radio label="warning">警告(warning)</el-radio><br/><el-radio label="danger">错误(danger)</el-radio></el-radio-group></td><td><el-radio-group v-model="a.type"><el-radio label="default">默认(default)</el-radio><br/><el-radio label="primary">主要(primary)</el-radio><br/><br/><br/><br/><el-radio label="danger">错误(danger)</el-radio><br/></el-radio-group></td></tr><tr><td>尺寸</td><td><el-radio-group v-model="i.size"><el-radio label="default">默认(default)</el-radio><br/><el-radio label="large">大(large)</el-radio><br/><el-radio label="small">小(small)</el-radio><br/><br/></el-radio-group></td><td><el-radio-group v-model="v.size"><el-radio label="default">默认(normal)</el-radio><br/><el-radio label="large">大(large)</el-radio><br/><br/><el-radio label="medium">中(medium)</el-radio></el-radio-group></td><td><el-radio-group v-model="e.size"><el-radio label="default">默认(default)</el-radio><br/><el-radio label="medium">中(medium)</el-radio><br/><el-radio label="small">小(small)</el-radio><br/><el-radio label="mini">迷你(mini)</el-radio></el-radio-group></td><td></td></tr><tr><td>可关闭</td><td><el-checkbox v-model="i.closable">可关闭</el-checkbox><td><el-checkbox v-model="v.closeable">可关闭</el-checkbox></td><td><el-checkbox v-model="e.closable">可关闭</el-checkbox></td><td><el-checkbox v-model="a.closable">可关闭</el-checkbox></td></tr><tr><td>其它</td><td><el-checkbox v-model="i.checkable">可选中</el-checkbox><br/><el-checkbox v-model="i.checked">选中</el-checkbox><br/><td><el-checkbox v-model="v.plain">空心</el-checkbox><br/><el-checkbox v-model="v.round">圆角</el-checkbox><br/><el-checkbox v-model="v.mark">标记</el-checkbox></td><td><el-checkbox v-model="e.hit">边框</el-checkbox><br/><br/></td><td><br/><br/></td></tr></table></div></div><script src="./yxl.js"></script><script>new Vue({el: '#app',data: {i:{text:"标签",color:"default",size:"default",closable:false,checkable:false,checked:false,},v:{text:"标签",type:"default",size:"default",closable:false,plain:false,round:false,mark:false,},e:{text:"标签",type:"default",size:"default",closable:false,hit:false,},a:{text:"标签",type:"default",closable:false,},},computed: {i_code(){return code('Tag',this.i);},v_code(){return code('van-tag',this.v);},e_code(){return code('el-tag',this.e);},a_code(){return code('a-tag',this.a);}}})</script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue的UI框架 - 标签</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/view-design/dist/styles/iview.css">
+    <script type="text/javascript" src="https://unpkg.com/view-design/dist/iview.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css"/>
+	<script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/ant-design-vue@1.7.4/dist/antd.css"/>
+	<script src="https://unpkg.com/ant-design-vue@1.7.4/dist/antd.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./yxl.css"/>	
+    <style type="text/css">
+        #nav a[title="标签"]{
+            background-color: white;
+            width: 90px;
+        }
+    </style>
+</head>
+<body>
+<header>
+
+</header>
+<main>
+<div id="nav">
+    <ul>
+        <li v-for="item in items" :key="item.label">
+            <a :href="item.href" :title="item.label">{{item.label}}</a>
+        </li>
+    </ul>	
+</div>
+<div id="app">
+<table>
+    <tr>
+        <th></th>
+        <th><img src="img/ivu.svg">View UI</th>
+        <th><img src="img/van.png">Vant</th>
+        <th><img src="img/el.svg">Element</th>
+        <th><img src="img/ant.svg">Ant Design</th>
+    </tr>
+    <tr>
+        <td>组件名</td>
+        <td>Tag</td>
+        <td>van-tag</td>
+        <td>el-tag</td>
+        <td>a-tag</td>
+    </tr>
+    <tr>
+        <td>UI</td>
+        <td>
+            <tag :color="i.color" :size="i.size" :closable="i.closable" :checkable="i.checkable" :checked="i.checked">
+                {{i.text}}
+            </tag>
+        </td>
+        <td>
+            <van-tag :type="v.type" :size="v.size" :closable="v.closable" :plain="v.plain" :round="v.round" :mark="v.mark">
+                {{i.text}}
+            </van-tag>
+        </td>
+        <td>
+            <el-tag :type="e.type" :size="e.size" :closable="e.closable" :hit="e.hit">
+                {{i.text}}
+            </el-tag>
+        </td>
+        <td>
+            <a-button :type="a.type" :size="a.size" :closable="a.closable">
+                {{i.text}}
+            </a-button>
+        </td>
+    </tr>
+    <tr>
+        <td>代码</td>
+        <td>
+            <div v-html="i_code"></div><i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+            <div v-html="v_code"></div><i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+            <div v-html="e_code"></div><i class="el-icon-document-copy" title="复制"></i>
+        </td>
+        <td>
+            <div v-html="a_code"></div><i class="el-icon-document-copy" title="复制"></i>
+        </td>
+    </tr>
+    <tr>
+        <td>文本</td>
+        <td><el-input v-model="i.text"></el-input></td>
+        <td><el-input v-model="v.text"></el-input></td>
+        <td><el-input v-model="e.text"></el-input></td>
+        <td><el-input v-model="a.text"></el-input></td>
+    </tr>
+    <tr>
+        <td>类型</td>
+        <td>
+            <el-radio-group v-model="i.color">
+                <el-radio label="default">默认(default)</el-radio><br/>
+                <el-radio label="primary">主要(primary)</el-radio><br/>
+                <el-radio label="success">成功(success)</el-radio><br/>
+                <br/>
+                <el-radio label="warning">警告(warning)</el-radio><br/>
+                <el-radio label="error">错误(error)</el-radio><br/>
+            </el-radio-group>
+        </td>
+        <td>
+            <el-radio-group v-model="v.type">
+                <el-radio label="default">默认(default)</el-radio><br/>
+                <el-radio label="primary">主要(primary)</el-radio><br/>
+                <br/>
+                <el-radio label="info">信息(info)</el-radio><br/>
+                <el-radio label="warning">警告(warning)</el-radio><br/>
+                <el-radio label="danger">错误(danger)</el-radio><br/>
+            </el-radio-group>
+        </td>
+        <td>
+            <el-radio-group v-model="e.type">
+                <el-radio label="default">默认(default)</el-radio><br/>
+                <br/>
+                <el-radio label="success">成功(success)</el-radio><br/>
+                <el-radio label="info">信息(info)</el-radio><br/>
+                <el-radio label="warning">警告(warning)</el-radio><br/>
+                <el-radio label="danger">错误(danger)</el-radio>
+            </el-radio-group>
+        </td>
+        <td>
+            <el-radio-group v-model="a.type">   
+                <el-radio label="default">默认(default)</el-radio><br/>
+                <el-radio label="primary">主要(primary)</el-radio><br/>
+                <br/>
+                <br/>
+                <br/>
+                <el-radio label="danger">错误(danger)</el-radio><br/>
+            </el-radio-group>
+        </td>
+    </tr>
+    <tr>
+        <td>尺寸</td>
+        <td>
+            <el-radio-group v-model="i.size">
+                <el-radio label="default">默认(default)</el-radio><br/>
+                <el-radio label="large">大(large)</el-radio><br/>
+                <el-radio label="small">小(small)</el-radio><br/>
+                <br/>
+            </el-radio-group>
+        </td>
+        <td>
+            <el-radio-group v-model="v.size">
+                <el-radio label="default">默认(normal)</el-radio><br/>
+                <el-radio label="large">大(large)</el-radio><br/>
+                <br/>
+                <el-radio label="medium">中(medium)</el-radio>
+            </el-radio-group>
+        </td>
+        <td>
+            <el-radio-group v-model="e.size">
+                <el-radio label="default">默认(default)</el-radio><br/>
+                <el-radio label="medium">中(medium)</el-radio><br/>
+                <el-radio label="small">小(small)</el-radio><br/>
+                <el-radio label="mini">迷你(mini)</el-radio>
+            </el-radio-group>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>可关闭</td>
+        <td>
+            <el-checkbox v-model="i.closable">可关闭</el-checkbox>
+        <td>
+            <el-checkbox v-model="v.closeable">可关闭</el-checkbox>
+        </td>
+        <td>
+            <el-checkbox v-model="e.closable">可关闭</el-checkbox>
+        </td>
+        <td>
+            <el-checkbox v-model="a.closable">可关闭</el-checkbox>
+        </td>
+    </tr>
+    <tr>
+        <td>其它</td>
+        <td>
+            <el-checkbox v-model="i.checkable">可选中</el-checkbox><br/>
+            <el-checkbox v-model="i.checked">选中</el-checkbox><br/>
+        <td>
+            <el-checkbox v-model="v.plain">空心</el-checkbox><br/>
+            <el-checkbox v-model="v.round">圆角</el-checkbox><br/>
+            <el-checkbox v-model="v.mark">标记</el-checkbox>
+        </td>
+        <td>
+            <el-checkbox v-model="e.hit">边框</el-checkbox><br/>
+            <br/>
+        </td>
+        <td>
+            <br/>
+            <br/>
+        </td>
+    </tr>
+</table>
+</div>
+</div>
+<script src="./yxl.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: { 
+            i:{//View UI
+                text:"标签",//文本
+                color:"default",//颜色
+                size:"default",//尺寸
+                closable:false,//可关闭
+                checkable:false,//可选中
+                checked:false,//选中
+            },
+            v:{//Vant
+                text:"标签",//文本
+                type:"default",//类型
+                size:"default",//尺寸
+                closable:false,//可关闭
+                plain:false,//空心
+                round:false,//圆角
+                mark:false,//标记
+            },
+            e:{//Element
+                text:"标签",//文本
+                type:"default",//类型
+                size:"default",//尺寸
+                closable:false,//可关闭
+                hit:false,//边框
+            },
+            a:{//Ant Design
+                text:"标签",//文本
+                type:"default",//类型
+                closable:false,//可关闭
+            },
+        },
+        computed: {
+            i_code(){
+                return code('Tag',this.i);
+            },
+            v_code(){
+                return code('van-tag',this.v);
+            },
+            e_code(){
+                return code('el-tag',this.e);
+            },
+            a_code(){
+                return code('a-tag',this.a);
+            }
+        }
+    })
+</script>
+</body>
+</html>

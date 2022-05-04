@@ -1,1 +1,85 @@
-﻿<!DOCTYPE html><html><head><meta charset="utf-8"><title>Vue的UI框架 - 色彩</title><script type="text/javascript" src="https://vuejs.org/js/vue.min.js"></script><link rel="stylesheet" type="text/css" href="https://unpkg.com/view-design/dist/styles/iview.css"><script type="text/javascript" src="https://unpkg.com/view-design/dist/iview.min.js"></script><link rel="stylesheet" type="text/css" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"><script src="https://unpkg.com/element-ui/lib/index.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css"/><script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script><link rel="stylesheet" type="text/css" href="https://unpkg.com/ant-design-vue@1.7.4/dist/antd.css"/><script src="https://unpkg.com/ant-design-vue@1.7.4/dist/antd.min.js"></script><link rel="stylesheet" type="text/css" href="./yxl.css"/><style type="text/css">#nav a[title="色彩"]{background-color: white;width: 90px;}#app td{text-align: center;}</style></head><body><header></header><main><div id="nav"><ul><li v-for="item in items" :key="item.label"><a :href="item.href" :title="item.label">{{item.label}}</a></li></ul></div><div id="app"><table><tr><th></th><th><img src="img/ivu.svg">View UI</th><th><img src="img/van.png">Vant</th><th><img src="img/el.svg">Element</th><th><img src="img/ant.svg">Ant Design</th></tr><tr><td>主色</td><td style="color:white;background-color:#2d8cf0;">#2d8cf0<i class="el-icon-document-copy"></i></td><td><i class="el-icon-document-copy"></i></td><td style="color:white;background-color:#409EFF;">#409EFF<i class="el-icon-document-copy"></i></td><td><i class="el-icon-document-copy"></i></td></tr><tr><td>成功</td><td style="color:white;background-color:#19be6b;">#19be6b<i class="el-icon-document-copy"></i></td><td><i class="el-icon-document-copy"></i></td><td style="color:white;background-color:#67C23A">#67C23A<i class="el-icon-document-copy"></i></td><td><i class="el-icon-document-copy"></i></td></tr><tr><td>信息</td><td style="color:white;background-color:#2db7f5;">#2db7f5<i class="el-icon-document-copy"></i></td><td><i class="el-icon-document-copy"></i></td><td style="color:white;background-color:#909399;">#909399<i class="el-icon-document-copy"></i></td><td><i class="el-icon-document-copy"></i></td></tr><tr><td>异常</td><td style="color:white;background-color:#ff9900;">#ff9900<i class="el-icon-document-copy"></i></td><td><i class="el-icon-document-copy"></i></td><td style="color:white;background-color:#E6A23C">#E6A23C<i class="el-icon-document-copy"></i></td><td><i class="el-icon-document-copy"></i></td></tr><tr><td>错误</td><td style="color:white;background-color:#ed4014;">#ed4014<i class="el-icon-document-copy"></i></td><td><i class="el-icon-document-copy"></i></td><td style="color:white;background-color:#F56C6C;">#F56C6C<i class="el-icon-document-copy"></i></td><td><i class="el-icon-document-copy"></i></td></tr></table></div></div><script src="./yxl.js"></script><script>new Vue({el: '#app',data: {},methods:{}})</script></body></html>
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Vue的UI框架 - 色彩</title>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/view-design/dist/styles/iview.css">
+        <script type="text/javascript" src="https://unpkg.com/view-design/dist/iview.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+        <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/ant-design-vue@1.7.4/dist/antd.css"/>
+        <script src="https://unpkg.com/ant-design-vue@1.7.4/dist/antd.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="./yxl.css"/>
+        <style type="text/css">
+            #nav a[title="色彩"]{
+                background-color: white;
+                width: 90px;
+            }
+            #app td{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header></header>
+        <main>
+            <div id="nav">
+                <ul>
+                    <li v-for="item in items" :key="item.label">
+                        <a :href="item.href" :title="item.label">{{item.label}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="app">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th><img src="img/ivu.svg">View UI</th>
+                        <th><img src="img/van.png">Vant</th>
+                        <th><img src="img/el.svg">Element</th>
+                        <th><img src="img/ant.svg">Ant Design</th>
+                    </tr>
+                    <tr>
+                        <td>主色</td>
+                        <td style="color:white;background-color:#2d8cf0;">#2d8cf0<i class="el-icon-document-copy"></i></td>
+                        <td><i class="el-icon-document-copy"></i></td>
+                        <td style="color:white;background-color:#409EFF;">#409EFF<i class="el-icon-document-copy"></i></td>
+                        <td><i class="el-icon-document-copy"></i></td>
+                    </tr>
+                    <tr>
+                        <td>成功</td>
+                        <td style="color:white;background-color:#19be6b;">#19be6b<i class="el-icon-document-copy"></i></td>
+                        <td><i class="el-icon-document-copy"></i></td>
+                        <td style="color:white;background-color:#67C23A">#67C23A<i class="el-icon-document-copy"></i></td>
+                        <td><i class="el-icon-document-copy"></i></td>
+                    </tr><tr>
+                        <td>信息</td>
+                        <td style="color:white;background-color:#2db7f5;">#2db7f5<i class="el-icon-document-copy"></i></td>
+                        <td><i class="el-icon-document-copy"></i></td>
+                        <td style="color:white;background-color:#909399;">#909399<i class="el-icon-document-copy"></i></td>
+                        <td><i class="el-icon-document-copy"></i></td>
+                    </tr><tr>
+                        <td>异常</td>
+                        <td style="color:white;background-color:#ff9900;">#ff9900<i class="el-icon-document-copy"></i></td>
+                        <td><i class="el-icon-document-copy"></i></td>
+                        <td style="color:white;background-color:#E6A23C">#E6A23C<i class="el-icon-document-copy"></i></td>
+                        <td><i class="el-icon-document-copy"></i></td>
+                    </tr><tr>
+                        <td>错误</td>
+                        <td style="color:white;background-color:#ed4014;">#ed4014<i class="el-icon-document-copy"></i></td>
+                        <td><i class="el-icon-document-copy"></i></td>
+                        <td style="color:white;background-color:#F56C6C;">#F56C6C<i class="el-icon-document-copy"></i></td>
+                        <td><i class="el-icon-document-copy"></i></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <script src="./yxl.js"></script>
+        <script>
+            new Vue({el: '#app',data: {},methods:{}})
+        </script>
+    </body>
+</html>

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Vue的UI框架 - 数值框</title>
+    <title>Vue的UI框架 - 开关</title>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/view-design/dist/styles/iview.css">
     <script type="text/javascript" src="https://unpkg.com/view-design/dist/iview.min.js"></script>
@@ -14,7 +14,7 @@
 	<script src="https://unpkg.com/ant-design-vue@1.7.4/dist/antd.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="./yxl.css"/>	
     <style type="text/css">
-        #nav a[title="数值框"]{
+        #nav a[title="开关"]{
             background-color: white;
             width: 90px;
         }
@@ -43,31 +43,28 @@
     </tr>
     <tr>
         <td>组件名</td>
-        <td>InputNumber</td>
-        <td></td>
-        <td>el-input-number</td>
-        <td>a-input-number</td>
+        <td>Switch</td>
+        <td>van-switch</td>
+        <td>el-switch</td>
+        <td>a-switch</td>
     </tr>
     <tr>
         <td>UI</td>
         <td>
-            <input-number v-model="i.value" :min="i.min" max="i.max" :step="i.step" :precision="i.precision" 
-                :placeholder="i.placeholder" :size="i.size" :disabled="i.disabled" :controls-outside="i.controlsOutside" 
-                :readonly="i.readonly"  :editable="i.editable" :active-change="i.activeChange">
-            </input-number>
+            <i-switch v-model="i.value" :size="i.size" :loading="i.loading" :disabled="i.disabled">
+            </i-number>
         </td>
         <td>
-
+            <van-switch v-model="i.value" :size="v.size" :loading="v.loading" :disabled="v.disabled">
+            </van-number>
         </td>
         <td>
-            <el-input-number v-model="e.value" :min="e.min" max="e.max" :step="e.step" :precision="e.precision" 
-                :placeholder="e.placeholder" :size="e.size" :disabled="e.disabled" :step-strictly="e.stepStrictly"
-                :controls="e.controls" :controls-position="e.controlsPosition">
-            </el-input-number>
+            <el-switch v-model="e.value" :size="e.size" :disabled="e.disabled">
+            </el-switch>
         </td>
         <td>
-            <a-input-number v-model="a.value" :min="a.min" max="a.max" :step="a.step" :precision="a.precision" :placeholder="a.placeholder" :size="a.size" :disabled="a.disabled">
-            </a-input-number>
+            <a-switch v-model="a.value" :size="a.size" :loading="a.loading" :disabled="a.disabled">
+            </a-switch>
         </td>
     </tr>
     <tr>
@@ -201,56 +198,41 @@
         data: { 
             i:{//View UI
                 value:10,//值
-                min:0,//最小值
-                max:100,//最大值
-                step:1,//步进值
-                precision:0,//精度
-                placeholder:"请输入",//提示
                 size:"default",//尺寸
+                loading:false,//加载中
                 disabled:false,//禁用
-                controlsOutside:false,//置于两侧
-                readonly:false,//只读
-                editable:true,//可编辑
-                activeChange:true//实时响应
             },
             v:{//Vant
+                value:10,//值
+                size:"default",//尺寸
+                loading:false,//加载中
+                disabled:false,//禁用
             },
             e:{//Element
                 value:10,//值
-                min:0,//最小值
-                max:100,//最大值 
-                step:1,//步进值
-                precision:0,//精度
-                placeholder:"请输入",//提示
                 size:"default",//尺寸
+                loading:false,//加载中
                 disabled:false,//禁用
-                stepStrictly:false,//步进倍数
-                controls:true,//增减按钮
-                controlsPosition:"default",//增减位置
             },
             a:{//Ant Design
                 value:10,//值
-                min:0,//最小值
-                max:100,//最大值
-                step:1,//步进值
-                precision:0,//精度
-                placeholder:"请输入",//提示
                 size:"default",//尺寸
+                loading:false,//加载中
                 disabled:false,//禁用
             },
         },
         computed: {
             i_code(){
-                return code('input-number',this.i);
+                return code('i-switch',this.i);
             },
             v_code(){
-                return "";
+                return code('van-switch',this.e);
             },
             e_code(){
-                return code('el-input-number',this.e);
+                return code('el-switch',this.e);
             },
             a_code(){
-                return code('a-input-number',this.a);
+                return code('a-switch',this.a);
             }
         }
     })

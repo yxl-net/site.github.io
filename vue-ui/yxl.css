@@ -1,1 +1,65 @@
-﻿main{display: flex;height:100%;}#nav{width:100px;height:100%;background-color: rgb(240,250,255);border-right: 2px solid rgb(45,140,240);}#nav a{margin-left:10px;display: block;height: 40px;color: #444;line-height: 40px;font-size: 14px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;font-weight: 400;}#app{padding: 10px;}#app table,#app tr,#app th,#app td{border: 1px solid rgb(232,234,236);border-collapse: collapse;}#app table{max-width:1000px;}#app>table>tbody>tr>td{padding: 10px;}#app>table>tbody>tr>th{padding: 10px;text-align: center;}.el-icon-document-copy{float: right;cursor:pointer;}.cname{color:rgb(58,201,176)}.cltgt{color:rgb(215,176,71)}.cattr{color:rgb(156,220,240)}.cval{color:rgb(195,145,120)}.equ{color:black;}.ctext{color:black;}
+main{
+    display: flex;
+    height:100%;
+}
+#nav{
+    width:100px;
+    height:100%;
+    background-color: rgb(240,250,255);
+    border-right: 2px solid rgb(45,140,240);
+}
+#nav a{
+    margin-left:10px;
+    display: block;
+    height: 40px;
+    color: #444;
+    line-height: 40px;
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 400;
+}
+#app{
+    padding: 10px;
+}
+#app table,#app tr,#app th,#app td{
+    border: 1px solid rgb(232,234,236);
+    border-collapse: collapse;
+}
+#app table{
+    max-width:1000px;
+}
+
+#app>table>tbody>tr>td{
+    padding: 10px;
+}
+
+#app>table>tbody>tr>th{
+    padding: 10px;
+    text-align: center;
+}
+
+.el-icon-document-copy{
+    float: right;
+    cursor:pointer;
+}
+
+.cname{
+    color:rgb(58,201,176)
+}
+.cltgt{
+    color:rgb(215,176,71)
+}
+.cattr{
+    color:rgb(156,220,240)
+}
+.cval{
+    color:rgb(195,145,120)
+}
+.equ{
+    color:black;
+}
+.ctext{
+    color:black;
+}
